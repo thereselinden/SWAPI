@@ -1,7 +1,7 @@
 # Star-wars project
 
 In this project I have created a simple site using the external [Star Wars API](https://swapi.dev/documentation).
-The site allows you to browse between Star Wars characthers and films.
+The site allows you to browse between Star Wars characters and films.
 
 ## Tech used
 
