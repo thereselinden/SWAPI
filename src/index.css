@@ -1,28 +1,30 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
   font-family: 'lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  background: radial-gradient(#121920 0%, #000000 100%);
+  /* overflow: hidden; */
+  /* gör så att man inte kan scrolla på sidan, hur stylar jag så scrollbar inte syns? */
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
-html {
+/* html {
   height: 100%;
   background: radial-gradient(#121920 0%, #000000 100%);
   overflow: hidden;
-}
-
-#root {
-  padding: 20px;
-}
+} */
+/* 
 #stars {
   width: 1px;
   height: 1px;
@@ -571,11 +573,12 @@ html {
     1948px 303px #fff, 1889px 252px #fff, 1114px 1400px #fff, 759px 646px #fff,
     222px 571px #fff, 1908px 1401px #fff, 1856px 1204px #fff, 338px 1645px #fff,
     1528px 1050px #fff;
-}
+} */
 
 h2 {
   background: -webkit-linear-gradient(#000, #ffd700);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 300;
   font-size: 34px;
@@ -589,7 +592,6 @@ h3 {
   font-size: 20px;
   letter-spacing: 8px;
   color: gold;
-  /* margin-bottom: 15px; */
   margin: 0 0 10px;
 }
 
@@ -625,6 +627,10 @@ img {
   cursor: pointer;
 }
 
+.button-wrapper {
+  padding: 15px;
+}
+
 .category-button {
   width: 100%;
   padding: 16px 12px;
@@ -647,10 +653,10 @@ img {
   grid-row-gap: 20px;
   grid-column-gap: 20px;
   width: 100%;
+  padding: 15px;
 }
 
 .character-card {
-  /* height: auto; */
   color: #fff;
   background: transparent;
   border: 1px solid gold;
@@ -663,15 +669,17 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all 0.2s linear;
 }
 
 .character-detail {
   display: none;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .character-card:hover .character-detail {
   display: block;
+  transition: all 0.4s ease-in-out;
 }
 
 .loader {

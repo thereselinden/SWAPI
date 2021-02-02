@@ -4,11 +4,14 @@ import CharactherThumb from '../components/CharacterThumb';
 import Error from '../components/Error';
 import Loader from '../components/Loader';
 import BackButton from '../components/BackButton';
+import SearchBar from '../components/SearchBar';
 
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [apiUrl, setApiUrl] = useState('https://swapi.dev/api/people/?page=1');
+  const [input, setInput] = useState('');
+  console.log('input', input);
 
   useEffect(() => {
     fetchCharacters(apiUrl);
@@ -25,41 +28,65 @@ const Characters = () => {
         }
       })
       .then(json => {
+        console.log({ json });
         setCharacters(characters.concat(json.results));
-        setLoading(false);
         const nextPage = json.next;
         if (nextPage) {
           setApiUrl(nextPage);
         }
+        setLoading(false);
       })
       .catch(() => {
         window.location.assign('/error');
       });
   };
 
+  // const searchInput = input => {
+  //   // console.log('input', input);
+  //   const filtered = characters.filter(item => {
+  //     if (input === '') {
+  //       return item;
+  //     }
+  //     //console.log('item', item);
+  //     return item.name.toLowerCase().includes(input.toLowerCase());
+  //   });
+  //   setInput(input);
+  //   setCharacters(filtered);
+  // };
+
   return (
     <>
-      {/* <section className="content-wrapper"> */}
       <BackButton />
-
       <h2>Characters</h2>
       {loading && <Loader />}
       {!loading && (
-        <div className="character-container">
-          {characters.map((item, index) => (
-            <CharactherThumb
-              key={item.name}
-              id={index + 1}
-              name={item.name}
-              className="character-card"
-              birth={item.birth_year}
-              gender={item.gender}
-              height={item.height}
-            />
-          ))}
-        </div>
+        <>
+          <SearchBar
+            value={input}
+            onChange={event => setInput(event.target.value)}
+          />
+          <div className="character-container">
+            {characters
+              .filter(item => {
+                if (input === '') {
+                  return item;
+                }
+                return item.name.toLowerCase().includes(input.toLowerCase());
+              })
+              .map((item, index) => (
+                <CharactherThumb
+                  key={item.name}
+                  id={index + 1}
+                  name={item.name}
+                  className="character-card"
+                  birth={item.birth_year}
+                  gender={item.gender}
+                  height={item.height}
+                />
+              ))}
+          </div>
+        </>
       )}
-      {/* </section> */}
     </>
   );
 };
