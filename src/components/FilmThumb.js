@@ -5,8 +5,7 @@ const FilmThumb = ({ id, className, title }) => {
   return (
     <Link to={`films/${id}`}>
       <article className={className}>
-        <h3>{title}</h3>
-        <div className="character-detail"></div>
+        <h2>{title}</h2>
       </article>
     </Link>
   );

@@ -11,12 +11,7 @@ const StartPage = () => {
         <Link to="/character">
           <Button type="button" text="Characters" className="category-button" />
         </Link>
-        <Link to="/planets">
-          <Button type="button" text="Planets" className="category-button" />
-        </Link>
-        <Link to="/spieces">
-          <Button type="button" text="Spieces" className="category-button" />
-        </Link>
+
         <Link to="/films">
           <Button type="button" text="Films" className="category-button" />
         </Link>

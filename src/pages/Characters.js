@@ -12,7 +12,6 @@ const Characters = () => {
   const [loading, setLoading] = useState(true);
   const [apiUrl, setApiUrl] = useState('https://swapi.dev/api/people/?page=1');
   const [input, setInput] = useState('');
-  console.log('input', input);
 
   useEffect(() => {
     fetchCharacters(apiUrl);
@@ -29,7 +28,6 @@ const Characters = () => {
         }
       })
       .then(json => {
-        console.log({ json });
         setCharacters(characters.concat(json.results));
         const nextPage = json.next;
         if (nextPage) {
@@ -45,7 +43,7 @@ const Characters = () => {
   return (
     <>
       <BackButton />
-      <h2>Characters</h2>
+      <h1>Characters</h1>
       {loading && <Loader />}
       {!loading && (
         <>
@@ -54,7 +52,7 @@ const Characters = () => {
             onChange={event => setInput(event.target.value)}
           />
           <ScrollToTop showBelow={400} />
-          <div className="character-container">
+          <div className="card-container">
             {characters
               .filter(item => {
                 if (input === '') {
@@ -67,7 +65,7 @@ const Characters = () => {
                   key={item.name}
                   id={index + 1}
                   name={item.name}
-                  className="character-card"
+                  className="card"
                   birth={item.birth_year}
                   gender={item.gender}
                   height={item.height}

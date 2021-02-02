@@ -21,7 +21,6 @@ const FilmDetail = () => {
         }
       })
       .then(json => {
-        console.log(json);
         setFilmDetail(json);
         setLoading(false);
       })
@@ -31,17 +30,25 @@ const FilmDetail = () => {
   }, [id, singleFilmUrl]);
 
   return (
-    <section>
+    <>
       <BackButton />
+      <section className="film-content">
+        <div className="film-card">
+          <h2>{filmDetail.title}</h2>
+          {loading && <Loader />}
+          {!loading && (
+            <>
+              <p>Released: {filmDetail.release_date}</p>
+              <p>Producer: {filmDetail.producer}</p>
 
-      <h2>{filmDetail.title}</h2>
-      {loading && <Loader />}
-      {!loading && (
-        <div>
-          <p>Gender: {filmDetail.opening_crawl} </p>
+              <p>
+                <span>{filmDetail.opening_crawl} </span>
+              </p>
+            </>
+          )}
         </div>
-      )}
-    </section>
+      </section>
+    </>
   );
 };
 export default FilmDetail;

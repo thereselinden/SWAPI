@@ -8,9 +8,8 @@ import BackButton from '../components/BackButton';
 const Films = () => {
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [apiUrl, setApiUrl] = useState('https://swapi.dev/api/films/?page=1');
 
-  console.log(films);
+  const apiUrl = 'https://swapi.dev/api/films/?page=1';
 
   useEffect(() => {
     fetchFilms(apiUrl);
@@ -20,7 +19,6 @@ const Films = () => {
   const fetchFilms = () => {
     fetch(apiUrl)
       .then(res => {
-        console.log(res.ok);
         if (res.ok) {
           return res.json();
         } else {
@@ -28,13 +26,8 @@ const Films = () => {
         }
       })
       .then(json => {
-        console.log(json.results);
-        setFilms(films.concat(json.results));
+        setFilms(json.results);
         setLoading(false);
-        const nextPage = json.next;
-        if (nextPage) {
-          setApiUrl(nextPage);
-        }
       })
       .catch(() => {
         window.location.assign('/error');
@@ -44,16 +37,16 @@ const Films = () => {
   return (
     <>
       <BackButton />
-      <h2>Films</h2>
+      <h1>Films</h1>
       {loading && <Loader />}
       {!loading && (
-        <div className="character-container">
+        <div className="card-container">
           {films.map((item, index) => (
             <FilmThumb
               key={item.title}
               id={index + 1}
               title={item.title}
-              className="character-card"
+              className="card"
             />
           ))}
         </div>

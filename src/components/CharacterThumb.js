@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CharacterThumb = ({ className, id, name, gender, birth, height }) => {
+const CharacterThumb = ({ className, name, gender, birth, height }) => {
   return (
     <article className={className}>
-      <h3>{name}</h3>
+      <h2>{name}</h2>
       <div className="character-detail">
         <p>Gender: {gender}</p>
         <p>Birth: {birth}</p>
