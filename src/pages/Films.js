@@ -38,8 +38,9 @@ const Films = () => {
     <>
       <BackButton />
       <h1>Films</h1>
-      {loading && <Loader />}
-      {!loading && (
+      {loading ? (
+        <Loader />
+      ) : (
         <div className="card-container">
           {films.map((item, index) => (
             <FilmThumb

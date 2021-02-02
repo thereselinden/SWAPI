@@ -10,7 +10,7 @@ import ScrollToTop from '../components/ScrollToTop';
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [apiUrl, setApiUrl] = useState('hhttps://swapi.dev/api/people/?page=1');
+  const [apiUrl, setApiUrl] = useState('https://swapi.dev/api/people/?page=1');
   const [input, setInput] = useState('');
 
   useEffect(() => {
@@ -44,8 +44,9 @@ const Characters = () => {
     <>
       <BackButton />
       <h1>Characters</h1>
-      {loading && <Loader />}
-      {!loading && (
+      {loading ? (
+        <Loader />
+      ) : (
         <>
           <SearchBar
             value={input}

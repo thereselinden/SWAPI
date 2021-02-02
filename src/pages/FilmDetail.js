@@ -31,7 +31,9 @@ const FilmDetail = () => {
 
   return (
     <>
-      {filmDetail && (
+      {loading ? (
+        <Loader />
+      ) : (
         <>
           <BackButton />
           <section className="film-content">
