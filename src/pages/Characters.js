@@ -5,6 +5,7 @@ import Error from '../components/Error';
 import Loader from '../components/Loader';
 import BackButton from '../components/BackButton';
 import SearchBar from '../components/SearchBar';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
@@ -41,19 +42,6 @@ const Characters = () => {
       });
   };
 
-  // const searchInput = input => {
-  //   // console.log('input', input);
-  //   const filtered = characters.filter(item => {
-  //     if (input === '') {
-  //       return item;
-  //     }
-  //     //console.log('item', item);
-  //     return item.name.toLowerCase().includes(input.toLowerCase());
-  //   });
-  //   setInput(input);
-  //   setCharacters(filtered);
-  // };
-
   return (
     <>
       <BackButton />
@@ -65,6 +53,7 @@ const Characters = () => {
             value={input}
             onChange={event => setInput(event.target.value)}
           />
+          <ScrollToTop showBelow={400} />
           <div className="character-container">
             {characters
               .filter(item => {

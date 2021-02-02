@@ -608,7 +608,28 @@ a {
 
 img {
   width: 100%;
-  max-width: 300px;
+}
+
+input {
+  padding: 15px 0;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: gold;
+  margin: 30px auto;
+  display: flex;
+  width: 91%;
+  max-width: 357px;
+  margin: 15px;
+}
+
+input::placeholder {
+  color: gold;
+  letter-spacing: 3px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  width: 80%;
+  display: block !important;
 }
 
 .content-wrapper {
@@ -645,6 +666,12 @@ img {
   font-size: 16px;
   font-family: 'lato', sans-serif;
   cursor: pointer;
+  transition: 0.2s ease-in-out 0s;
+}
+
+.category-button:hover {
+  cursor: pointer;
+  transform: scale(1.25);
 }
 
 .character-container {
@@ -718,22 +745,31 @@ img {
 }
 
 @media (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
   .character-container {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .category-button {
-    width: 200px;
+    width: 300px;
   }
   .button-wrapper {
     display: flex;
-    width: 100%;
+    flex-direction: column;
     justify-content: space-evenly;
+  }
+  img {
+    width: 400px;
   }
 }
 
 @media (min-width: 1024px) {
   .character-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+  img {
+    width: 500px;
   }
 }

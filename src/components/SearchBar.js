@@ -2,12 +2,14 @@ import React from 'react';
 
 const SearchBar = ({ value, onChange }) => {
   return (
-    <input
-      type="text"
-      value={value}
-      placeholder="Search..."
-      onChange={onChange}
-    />
+    <div className="input-wrapper">
+      <input
+        type="text"
+        value={value}
+        placeholder="Search character here..."
+        onChange={onChange}
+      />
+    </div>
   );
 };
 export default SearchBar;
