@@ -28,10 +28,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
-// color: #000;
-//     right: 5%;
-//     background-color: #ffd700;
-//     opacity: 0.6;
 
 const ScrollToTop = ({ showBelow }) => {
   const classes = useStyles();

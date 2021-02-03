@@ -39,17 +39,11 @@ const FilmDetail = () => {
           <section className="film-content">
             <div className="film-card">
               <h2>{filmDetail.title}</h2>
-              {loading && <Loader />}
-              {!loading && (
-                <>
-                  <p>Released: {filmDetail.release_date}</p>
-                  <p>Producer: {filmDetail.producer}</p>
-
-                  <p>
-                    <span>{filmDetail.opening_crawl} </span>
-                  </p>
-                </>
-              )}
+              <p>Released: {filmDetail.release_date}</p>
+              <p>Producer: {filmDetail.producer}</p>
+              <p>
+                <span>{filmDetail.opening_crawl} </span>
+              </p>
             </div>
           </section>
         </>
